@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube_api/models/channel_model.dart';
-import 'package:flutter_youtube_api/models/video_model.dart';
-import 'package:flutter_youtube_api/screens/video_screen.dart';
-import 'package:flutter_youtube_api/services/api_service.dart';
+import 'package:personal_youtube_viewer/models/channel_model.dart';
+import 'package:personal_youtube_viewer/models/video_model.dart';
+import 'package:personal_youtube_viewer/screens/video_screen.dart';
+import 'package:personal_youtube_viewer/services/api_service.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _initChannel() async {
     Channel channel = await APIService.instance
-        .fetchChannel(channelId: 'UC6Dy0rQ6zDnQuHQ1EeErGUA');
+        .fetchChannel(channelId: 'UCNzsYU0aWwjERj-9Y9HUEng');
     setState(() {
       _channel = channel;
     });

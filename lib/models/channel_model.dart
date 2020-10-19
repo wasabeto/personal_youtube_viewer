@@ -1,4 +1,4 @@
-import 'package:flutter_youtube_api/models/video_model.dart';
+import 'package:personal_youtube_viewer/models/video_model.dart';
 
 class Channel {
 
