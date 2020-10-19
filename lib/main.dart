@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_youtube_viewer/screens/home_screen.dart';
+import 'package:personal_youtube_viewer/screens/channel_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: ChannelScreen(),
     );
   }
 }

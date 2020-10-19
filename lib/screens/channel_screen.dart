@@ -4,12 +4,12 @@ import 'package:personal_youtube_viewer/models/video_model.dart';
 import 'package:personal_youtube_viewer/screens/video_screen.dart';
 import 'package:personal_youtube_viewer/services/api_service.dart';
 
-class HomeScreen extends StatefulWidget {
+class ChannelScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ChannelScreenState createState() => _ChannelScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ChannelScreenState extends State<ChannelScreen> {
   Channel _channel;
   bool _isLoading = false;
 
