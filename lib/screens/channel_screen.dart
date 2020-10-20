@@ -13,20 +13,6 @@ class _ChannelScreenState extends State<ChannelScreen> {
   Channel _channel;
   bool _isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _initChannel();
-  }
-
-  _initChannel() async {
-    Channel channel = await APIService.instance
-        .fetchChannel(channelId: 'UCNzsYU0aWwjERj-9Y9HUEng');
-    setState(() {
-      _channel = channel;
-    });
-  }
-
   _buildProfileInfo() {
     return Container(
       margin: EdgeInsets.all(20.0),
@@ -138,9 +124,11 @@ class _ChannelScreenState extends State<ChannelScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _channel = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('YouTube Channel'),
+        title: Text(_channel.title),
       ),
       body: _channel != null
           ? NotificationListener<ScrollNotification>(
