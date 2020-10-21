@@ -51,7 +51,7 @@ class _ChannelScreenState extends State<ChannelScreen> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  '${_channel.subscriberCount} subscribers',
+                  _channel.description,
                   style: TextStyle(
                     color: Colors.grey[600],
                     fontSize: 16.0,

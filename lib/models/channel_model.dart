@@ -4,6 +4,7 @@ class Channel {
 
   final String id;
   final String title;
+  final String description;
   final String profilePictureUrl;
   final String subscriberCount;
   final String videoCount;
@@ -13,6 +14,7 @@ class Channel {
   Channel({
     this.id,
     this.title,
+    this.description,
     this.profilePictureUrl,
     this.subscriberCount,
     this.videoCount,
@@ -24,6 +26,7 @@ class Channel {
     return Channel(
       id: map['id'],
       title: map['snippet']['title'],
+      description: map['snippet']['description'],
       profilePictureUrl: map['snippet']['thumbnails']['default']['url'],
       subscriberCount: map['statistics']['subscriberCount'],
       videoCount: map['statistics']['videoCount'],
