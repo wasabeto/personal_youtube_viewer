@@ -16,17 +16,13 @@ class _ChannelListScreenState extends State<ChannelListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('YouTube channel list'),
+          title: Text('Channel list'),
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Container(
-              child: Column(
-                children: CHANNEL_LIST.map((channelId) {
-                  return _createCardChannel(channelId);
-                }).toList(),
-              ),
-            )));
+        body: ListView(
+          children: CHANNEL_LIST
+              .map((channelId) => _createCardChannel(channelId))
+              .toList(),
+        ));
   }
 
   Widget _createCardChannel(String channelId) {

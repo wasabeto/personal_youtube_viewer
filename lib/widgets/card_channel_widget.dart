@@ -8,58 +8,55 @@ class CardChannelWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        padding: EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.red.withOpacity(0.3),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3))
-            ]),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    double _marginX;
+    if (MediaQuery.of(context).orientation == Orientation.portrait &&
+        MediaQuery.of(context).size.width > 600) {
+      _marginX = 50.0;
+    } else {
+      _marginX = 150.0;
+    }
+
+    return Card(
+      shadowColor: Colors.red,
+      elevation: 10.0,
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: _marginX),
+      child: ListTile(
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(50.0),
+          child: FadeInImage(
+            image: NetworkImage(channel.profilePictureUrl),
+            placeholder: AssetImage('assets/img/no-image.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        title: Text(
+          channel.title,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        subtitle: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: FadeInImage(
-                height: 90.0,
-                image: NetworkImage(channel.profilePictureUrl),
-                placeholder: AssetImage('assets/youtube_channel.png'),
-              ),
+            Icon(
+              Icons.supervised_user_circle,
+              color: Colors.black26,
+              size: 15.0,
             ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(channel.title,
-                        style: Theme.of(context).textTheme.subtitle1,
-                        overflow: TextOverflow.ellipsis),
-                    Text(
-                      '${channel.subscriberCount} subscribers',
-                      style: TextStyle(fontSize: 10.0),
-                    ),
-                    Text(
-                      '${channel.videoCount} videos',
-                      style: TextStyle(fontSize: 10.0),
-                    ),
-                  ],
-                ),
-              ),
-            )
+            Text(channel.subscriberCount,
+                style: Theme.of(context).textTheme.caption),
+            SizedBox(width: 10.0),
+            Icon(
+              Icons.video_library,
+              color: Colors.black26,
+              size: 15.0,
+            ),
+            Text(channel.subscriberCount,
+                style: Theme.of(context).textTheme.caption),
           ],
         ),
+        trailing: Icon(Icons.more_vert),
+        onTap: () {
+          Navigator.pushNamed(context, 'channel-detail', arguments: channel);
+        },
       ),
-      onTap: () {
-        Navigator.pushNamed(context, 'channel-detail', arguments: channel);
-      },
     );
   }
 }
